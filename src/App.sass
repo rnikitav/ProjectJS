@@ -1,0 +1,586 @@
+=flex()
+  display: flex
+  align-items: center
+
+=placeholderShipping($color)
+  &::-webkit-input-placeholder
+    color: $color,
+  ::-moz-placeholder
+    color: $color,
+  ::-ms-input-placeholder
+    color: $color,
+$colorAccentSite: #f16d7f
+
+@keyframes myMove1
+  0%
+    left: 60%
+    top: 50%
+  55%
+    left: 0
+    top: 50%
+  100%
+    left: 0
+
+@-webkit-keyframes rotate-scale-up-diag-1
+  0%
+    -webkit-transform: scale(1) rotate3d(1, 1, 0, 0deg)
+    transform: scale(1) rotate3d(1, 1, 0, 0deg)
+  50%
+    -webkit-transform: scale(2) rotate3d(1, 1, 0, -180deg)
+    transform: scale(2) rotate3d(1, 1, 0, -180deg)
+
+
+  100%
+    -webkit-transform: scale(1) rotate3d(1, 1, 0, -360deg)
+    transform: scale(1) rotate3d(1, 1, 0, -360deg)
+
+@keyframes rotate-scale-up-diag-1
+  0%
+    -webkit-transform: scale(1) rotate3d(1, 1, 0, 0deg)
+    transform: scale(1) rotate3d(1, 1, 0, 0deg)
+  50%
+    -webkit-transform: scale(2) rotate3d(1, 1, 0, -180deg)
+    transform: scale(2) rotate3d(1, 1, 0, -180deg)
+  100%
+    -webkit-transform: scale(1) rotate3d(1, 1, 0, -360deg)
+    transform: scale(1) rotate3d(1, 1, 0, -360deg)
+
+
+@-webkit-keyframes rotate-scale-down
+  0%
+    -webkit-transform: scale(1) rotateZ(0)
+    transform: scale(1) rotateZ(0)
+
+  50%
+    -webkit-transform: scale(0.5) rotateZ(180deg)
+    transform: scale(0.5) rotateZ(180deg)
+
+  100%
+    -webkit-transform: scale(1) rotateZ(360deg)
+    transform: scale(1) rotateZ(360deg)
+
+
+@keyframes rotate-scale-down
+  0%
+    -webkit-transform: scale(1) rotateZ(0)
+    transform: scale(1) rotateZ(0)
+
+  50%
+    -webkit-transform: scale(0.5) rotateZ(180deg)
+    transform: scale(0.5) rotateZ(180deg)
+
+  100%
+    -webkit-transform: scale(1) rotateZ(360deg)
+    transform: scale(1) rotateZ(360deg)
+
+
+
+@-webkit-keyframes bg-pan-bl
+  0%
+    background-position: 100% 0%
+  60%
+    background-position: 0% 100%
+  100%
+    background-position: center -51px
+
+@keyframes bg-pan-bl
+  0%
+    background-position: 100% 0%
+  60%
+    background-position: 0% 100%
+  100%
+    background-position: center -51px
+*
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+
+
+body
+  font-family: 'Lato', sans-serif
+
+
+a
+  text-decoration: none
+
+.rotate-scale-up-diag-1
+  -webkit-animation: rotate-scale-up-diag-1 0.7s linear both
+  animation: rotate-scale-up-diag-1 0.7s linear both
+
+.rotate-scale-down
+  -webkit-animation: rotate-scale-down 0.65s linear both
+  animation: rotate-scale-down 0.65s linear both
+
+.bg-pan-bl
+  -webkit-animation: bg-pan-bl 8s both
+  animation: bg-pan-bl 8s both
+
+.center
+  padding: 0 calc(50% - 570px)
+
+
+.color-accent
+  color: $colorAccentSite
+
+
+.header
+  min-height: 100px
+  background-color: #ffffff
+  border: 1px solid #ececec
+  box-shadow: 0 0 10px 0 #000000
+  display: flex
+  justify-content: space-between
+  align-content: center
+  flex-wrap: wrap
+
+  &__left
+    @extend .header__form
+    flex-wrap: wrap
+
+  &__right
+    @extend .header__form
+
+  &__form
+    +flex
+
+.logo
+  display: flex
+  align-items: center
+  letter-spacing: 0.68px
+  padding: 25px 0
+  color: #222222
+  font-size: 27px
+  font-weight: 300
+  line-height: 32px
+  text-transform: uppercase
+  margin-right: 37px
+
+  &__lastlet
+    color: $colorAccentSite
+    font-weight: 400
+    letter-spacing: 0.68px
+
+  &__img
+    padding-right: 13px
+.browse
+  position: relative
+
+  .drop__browse
+    position: absolute
+    top: 38px
+    border-radius: 5px
+    padding-left: 20px
+    padding-right: 20px
+    padding-bottom: 8px
+    display: flex
+    z-index: 9
+    width: 262px
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.17)
+    border: 1px solid #ececec
+    background-color: #ffffff
+
+  .drop__browse:before
+    content: ""
+    position: absolute
+    width: 10px
+    height: 10px
+    background: #ffffff
+    border-top: 1px solid #e8e8e8
+    border-left: 1px solid #e8e8e8
+    top: -6px
+    left: 69px
+    transform: rotate(45deg)
+    z-index: 10
+
+.btn__browse
+  display: flex
+  align-items: center
+  height: 37px
+  border-radius: 3px 0 0 3px
+  border: 1px solid #e6e6e6
+  border-right: none
+  background-color: #cdcdcc
+  background-image: linear-gradient(to bottom, #f9f9f9 0%, #f5f5f5 100%)
+
+  & summary
+    outline: none
+    padding-left: 15px
+
+  & details
+    z-index: 25
+    color: #222222
+    font-size: 14px
+    line-height: 37px
+    font-weight: 300
+    letter-spacing: 0.35px
+
+  & summary::-webkit-details-marker
+    display: none
+
+  & summary::after
+    content: '\25BC'
+    padding: 0 8px
+    color: #222222
+    font-size: 10px
+
+.input__header
+  height: 37px
+  font-size: 14px
+  padding: 0 15px
+  font-weight: 300
+  line-height: 19.8px
+  letter-spacing: 0.35px
+  border: 1px solid #e6e6e6
+  background-color: #ffffff
+
+.header__form > button
+  width: 37px
+  height: 37px
+  border-radius: 0 3px 3px 0
+  border: 1px solid #e6e6e6
+  background-color: #ffffff
+
+.header__cart
+  margin-left: 8px
+  padding-bottom: 2px
+.menu__list
+  position: relative
+  height: 60px
+
+.drop
+  background-color: #ffffff
+  border-radius: 5px
+  display: flex
+  height: 0
+  position: absolute
+  z-index: 5
+  top: 60px
+  &:before
+    content: ""
+    position: absolute
+    width: 0
+    height: 0
+    background: #ffffff
+    border-top: 1px solid #e8e8e8
+    border-left: 1px solid #e8e8e8
+    top: -6px
+    left: 22%
+    transform: rotate(45deg)
+    z-index: 11
+
+  &__first
+    left: -146px
+    @extend .drop
+
+  &__last
+    right: -200px
+    @extend .drop
+    &:before
+      left: 69%
+
+  &__middle
+    left: -200px
+    @extend .drop
+    &:before
+      left: 28%
+  &__ul
+    list-style-type: none
+
+  &__ul__header
+    padding-left: 5px
+
+  &__h3
+    font-size: 14px
+    color: #232323
+    letter-spacing: 0.03em
+    line-height: 32px
+    text-transform: uppercase
+    border-bottom: 1px solid #e8e8e8
+    margin-bottom: 8px
+    margin-top: 8px
+
+  &__link
+    font-size: 14px
+    color: #646464
+    letter-spacing: 0.03em
+    line-height: 28px
+    font-weight: 400
+
+  &__link:hover
+    color: $colorAccentSite
+
+
+  &__flex > img
+    padding-top: 16px
+    width: inherit
+
+  &__flex
+    width: 234px
+    margin-right: 46px
+    overflow: hidden
+
+  &__flex__header
+    width: inherit
+
+  &__flex:last-of-type
+    margin-right: 0
+
+.menu__list:hover .drop
+  height: 332px
+  transition: height .7s cubic-bezier(.14,.65,.53,1)
+  border: 1px solid #e8e8e8
+  padding-left: 20px
+  padding-right: 20px
+  padding-bottom: 8px
+.menu__list:hover .drop:before
+  width: 10px
+  height: 10px
+.myaccount__dropdownlist
+
+  height: auto
+  transition: height 1.5s
+
+
+  &_flex
+    position: absolute
+    top: 47px
+    left: -6px
+    border-radius: 5px
+    background-color: #ffffff
+    z-index: 5
+
+.basket
+  width: 50px
+  height: 60px
+  margin-right: 5px
+  margin-top: 30px
+  position: relative
+.myaccount__dropdownlist_flex
+  border: 1px solid #e8e8e8
+  &:before
+    content: ""
+    width: 15px
+    height: 15px
+    background: #ffffff
+    border-top: 1px solid #e8e8e8
+    border-left: 1px solid #e8e8e8
+    position: absolute
+    left: 20px
+    top: -9px
+    transform: rotate(45deg)
+    z-index: 10
+  //  transition: height 1.5s
+  //&:hover .myaccount__dropdownlist:before
+  //  width: 15px
+  //  height: 15px
+
+.myaccount__drop__one
+  display: flex
+  margin: 21px 15px 0 15px
+  border-bottom: 2px solid #ededed
+  & > a
+    margin-right: 15px
+    margin-bottom: 16px
+
+  .basket__drop_right > a > h4
+    color: #222222
+    font-size: 13px
+    font-weight: 700
+    text-transform: uppercase
+    padding-top: 10px
+    padding-bottom: 7px
+
+    & > img
+      padding-bottom: 6px
+
+    & > p
+      color: $colorAccentSite
+      font-size: 13px
+      font-weight: 400
+      text-transform: uppercase
+
+.basket-span
+  font-size: 11px
+  padding: 0 4px
+  text-transform: lowercase
+
+
+.basket__price-p
+  display: flex
+  justify-content: space-between
+  margin: 19px 17px
+  color: #222222
+  font-size: 16px
+  font-weight: 700
+  text-transform: uppercase
+
+
+.basket__a__two
+  display: block
+  width: 225px
+  height: 50px
+  text-align: center
+  line-height: 50px
+  background-color: #ffffff
+  font-size: 14px
+  font-weight: 700
+  text-transform: uppercase
+
+
+.basket__a__checkout
+  margin: 13px 18px 11px 18px
+  border: 1px solid $colorAccentSite
+  color: $colorAccentSite
+
+
+.basket__a__gotocart
+  border: 1px solid #eaeaea
+  margin: 0 18px 20px 18px
+  color: #4a4a4a
+
+
+.basket__a__checkout:hover
+  background: $colorAccentSite
+  color: #ffffff
+
+
+.basket__a__gotocart:hover
+  background: #4a4a4a
+  color: #ffffff
+
+
+.myaccount__drop__one:hover
+  border-bottom: 2px solid $colorAccentSite
+.button
+  display: block
+  margin-left: 8px
+  padding: 3px 15px
+  background-color: $colorAccentSite
+  text-decoration: none
+  color: #ffffff
+  font-size: 15px
+  font-weight: 700
+  line-height: 32px
+  text-align: center
+  letter-spacing: 0.38px
+  transition: all 0.4s
+  &:hover
+    background: #7a7a7a
+  &__arrow
+    padding-left: 8px
+    padding-bottom: 2px
+
+.img__withbg
+  display: block
+  height: 280px
+  width: 263px
+  overflow: hidden
+  transition: all 0.7s
+  background: url(./assets/img/Layer_03.png) no-repeat center, url(./assets/img/Image_placeholder.jpg) no-repeat center
+
+  &__2
+    background: url(./assets/img/Layer_04.png) no-repeat center, url(./assets/img/Image_placeholder.jpg) no-repeat center
+
+
+  &__4
+    background: url(./assets/img/Layer_06.png) no-repeat center, url(./assets/img/Image_placeholder.jpg) no-repeat center
+
+
+  &__new__1
+    background: url(./assets/img/Layer_001.png) no-repeat center, url(./assets/img/Rectangle_001.jpg) no-repeat center
+
+
+  &__new__2
+    background: url(./assets/img/Layer_002.png) no-repeat center, url(./assets/img/Rectangle_001.jpg) no-repeat center
+
+
+  &__new__3
+    background: url(./assets/img/Layer_003.png) no-repeat center, url(./assets/img/Rectangle_001.jpg) no-repeat center
+.featured-link-name
+  color: #222222
+  font-size: 13px
+  font-weight: 400
+  text-transform: uppercase
+.featured-product-price
+  font-size: 16px
+  font-weight: 700
+  text-transform: uppercase
+  margin-top: 17px
+.featured-product-one
+  padding: 19px 15px
+.img-one-featured_main
+  position: relative
+  width: 263px
+  margin-bottom: 20px
+  transition: all 0.5s
+.featured-img
+  width: 263px
+  height: 280px
+  overflow: hidden
+  position: relative
+  & img
+    width: 100%
+    height: 100%
+    transition: all 0.7s
+.img-one-featured_main:hover .img__featured_main__hover
+  display: flex
+.featured-height
+  height: 282px
+.img__featured_main__hover:hover
+  box-shadow: 0 0 5px #fff
+  transition: box-shadow 0.5s
+.img__featured_main__hover:hover .img__withbg__1
+  filter: brightness(30%)
+
+.img-one-featured_main:hover
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.16)
+
+.img-one-featured_main:hover .featured-img  img
+  filter: brightness(30%)
+  transform: scale(1.1) rotate(5deg)
+.img-one-featured_main:hover .img__withbg
+  filter: brightness(30%)
+  transform: scale(1.1) rotate(5deg)
+.img__featured_main__hover
+  position: absolute
+  display: none
+  align-items: center
+  justify-content: center
+  top: 98px
+  left: 70px
+  width: 123px
+  height: 39px
+  border: 1px solid #ffffff
+  @at-root
+    .feature-hover-p
+      color: #ffffff
+      font-size: 13px
+      font-weight: 700
+      padding-left: 8px
+    .img__featured_main__hover img
+      height: 22px
+      width: 22px
+.button__2
+  width: 212px
+  height: 48px
+  line-height: 40px
+  &:hover
+    color: $colorAccentSite
+    background: #4d4d4d
+  @at-root
+    .browse-div-link
+      display: flex
+      justify-content: center
+.cartFix
+  position: fixed
+  right: 20%
+  border: 1px solid #cecece
+  background-color: #fff
+  padding: 10px
+  top: 10px
+  border-radius: 8px
+  z-index: 9999
+
+
+
+
